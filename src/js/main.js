@@ -16,6 +16,7 @@
       section: document.querySelector("#section4"),
     },
   ];
+  let curScene = 1;
 
   const setSzie = () => {
     const windowHeight = window.innerHeight;
@@ -31,21 +32,19 @@
 
   window.addEventListener("resize", setSzie);
   window.addEventListener("scroll", () => {
+    let pageYoffset = window.pageYOffset;
     let prevScrollHeight = 0;
-    let currentScene = 1;
-    // for (let objInex = 0; objInex < currentScene; objInex++) {
-    //   const { section } = objs[objInex];
-    //   const pageYOffset = window.pageYOffset;
-    //   prevScrollHeight += section.clientHeight;
+    for (let sectionIdx = 0; sectionIdx < objs.length; sectionIdx++) {
+      const { section } = objs[sectionIdx];
+      const height = section.clientHeight;
 
-    //   console.log("prevScrollHeight : ", prevScrollHeight);
-    //   console.log("pageYOffset : ", pageYOffset);
-    //   if (pageYOffset >= prevScrollHeight) {
-    //     currentScene++;
-    //     break;
-    //   }
-    // }
+      prevScrollHeight += height;
+      if (pageYoffset >= height) {
+        // alert("prevScrollHeight : " + prevScrollHeight);
+        // break;
+      }
+    }
 
-    console.log(currentScene);
+    console.log("curScene : ", curScene);
   });
 })();
