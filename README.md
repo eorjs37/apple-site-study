@@ -29,6 +29,33 @@ const setSzie = () => {
 window.addEventListener("resize", setSzie);
 ```
 
-## 현재 scene 구하기
+## scroll 이벤트의 현재 scene 구하기
 
-## 현재 scene의 위치
+```javascript
+let curScene = 0;
+
+window.addEventListener("scroll", () => {
+  let pageYoffset = window.pageYOffset;
+  let prevScrollHeight = 0;
+
+  // 현재까지의 scene의 높이 구하기
+  for (let i = 0; i < curScene; i++) {
+    prevScrollHeight += objs[i].section.clientHeight;
+  }
+
+  // 현재 page 높이 > prevScrollHeight(현재 scene까지의 총 scene 높이 총합) +  현재 scene의 높이
+  if (pageYOffset > prevScrollHeight + objs[curScene].section.clientHeight) {
+    curScene++;
+  }
+
+  if (pageYoffset < prevScrollHeight) {
+    curScene--;
+  }
+});
+```
+
+## DOMContentLoaded 될 때의 현재 scene 구하기
+
+```javascript
+
+```
