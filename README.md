@@ -57,5 +57,9 @@ window.addEventListener("scroll", () => {
 ## DOMContentLoaded 될 때의 현재 scene 구하기
 
 ```javascript
-
+const setSzie = () => {
+  //현재 scene 구하기
+  let prevHeight = 0;
+  const pageYOffset = window.pageYOffset;
+};
 ```

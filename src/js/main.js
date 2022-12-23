@@ -26,15 +26,20 @@
     });
 
     //현재 scene 구하기
+    let prevHeight = 0;
+    const pageYOffset = window.pageYOffset;
     for (let i = 0; i < objs.length; i++) {
-      const pageYOffset = window.pageYoffset;
-      let prevHeight = 0;
-
       const { section } = objs[i];
       const clientHeight = section.clientHeight;
 
       prevHeight += clientHeight;
+      if (prevHeight >= pageYOffset) {
+        curScene = i;
+        break;
+      }
     }
+
+    console.log("setSzie curScene : ", curScene);
   };
 
   window.onload = () => {
