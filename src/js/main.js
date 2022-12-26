@@ -6,7 +6,7 @@
     {
       section: document.querySelector("#section1"),
       messageList: [{ messageA: document.querySelector("#section1 .main-message.a") }],
-      values: [],
+      values: [{ messageA_opacity_in: [0, 1] }],
     },
     {
       section: document.querySelector("#section2"),
@@ -19,6 +19,7 @@
     },
   ];
   let curScene = 0;
+  let curScenetHeight = 0;
 
   const setSzie = () => {
     const windowHeight = window.innerHeight * 5;
@@ -46,13 +47,24 @@
     setSzie();
   };
 
-  const playAnimation = () => {};
+  const playAnimation = () => {
+    const values = objs[curScene].values;
+    const messageA = document.querySelector(".main-message.a");
+
+    let rv = 0;
+    const { section } = objs[curScene];
+    const sceneHeight = section.clientHeight;
+
+    rv = curScenetHeight / sceneHeight;
+    messageA.style.opacity = rv;
+  };
 
   window.addEventListener("resize", setSzie);
   window.addEventListener("DOMContentLoaded", setSzie);
   window.addEventListener("scroll", () => {
     let pageYoffset = window.pageYOffset;
     let prevScrollHeight = 0;
+    curScenetHeight = 0;
 
     //현재 scene 구하기
     for (let i = 0; i < curScene; i++) {
@@ -66,6 +78,10 @@
     if (pageYoffset < prevScrollHeight) {
       curScene--;
     }
+
+    curScenetHeight = pageYoffset - prevScrollHeight;
+    if (curScenetHeight < 0) return false;
+
     playAnimation();
   });
 })();

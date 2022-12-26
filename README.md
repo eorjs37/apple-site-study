@@ -64,7 +64,43 @@ const setSzie = () => {
 };
 ```
 
+## 현재 scene에 따라 높이 측정하기
+
+> : 0번째 일때는 pageYOffset  
+>  : 1번째 scene일때는 pageYOffset - 0번째 height  
+>  : 2번째 scene일때는 pageYOffset - 0번째 height + 1번째 height  
+>  : 3번째 scene일때는 pageYOffset - 0번째 height + 1번째 height + 2번째 height
+
+```javascript
+let pageYoffset = window.pageYOffset;
+let prevScrollHeight = 0;
+let curScenetHeight = 0;
+
+//현재 scene 구하기
+for (let i = 0; i < curScene; i++) {
+  prevScrollHeight += objs[i].section.clientHeight;
+}
+if (pageYoffset > prevScrollHeight + objs[curScene].section.clientHeight) {
+  curScene++;
+}
+curScenetHeight = pageYoffset - prevScrollHeight;
+if (curScenetHeight < 0) return false;
+```
+
 ## Scroll에 따라 opacity
 
-> 1. objs에 messageA선언
-> 2. playAnimation 함수 선언
+```javascript
+const objs = [
+  {
+    section: document.querySelector("#section1"),
+    messageList: [{ messageA: document.querySelector("#section1 .main-message.a") }],
+    values: [{ messageA_opacity_in: [0, 1] }],
+  },
+];
+let curScene = 0;
+const messageA = document.querySelector(".main-message.a");
+let rv = 0;
+const { section } = objs[curScene];
+rv = curScenetHeight / sceneHeight;
+messageA.style.opacity = rv;
+```
