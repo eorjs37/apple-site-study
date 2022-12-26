@@ -63,3 +63,8 @@ const setSzie = () => {
   const pageYOffset = window.pageYOffset;
 };
 ```
+
+## Scroll에 따라 opacity
+
+> 1. objs에 messageA선언
+> 2. playAnimation 함수 선언

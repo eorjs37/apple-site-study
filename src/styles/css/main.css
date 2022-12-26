@@ -6,3 +6,18 @@ html {
 section {
   border: 1px solid red;
 }
+
+.sticy-elem {
+  position: fixed;
+  left: 0;
+  width: 100%;
+  top: 35vh;
+}
+
+.main-message {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 10vh;
+  line-height: 14.5vh;
+}

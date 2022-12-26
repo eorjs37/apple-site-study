@@ -5,6 +5,8 @@
   const objs = [
     {
       section: document.querySelector("#section1"),
+      messageList: [{ messageA: document.querySelector("#section1 .main-message.a") }],
+      values: [],
     },
     {
       section: document.querySelector("#section2"),
@@ -19,7 +21,7 @@
   let curScene = 0;
 
   const setSzie = () => {
-    const windowHeight = window.innerHeight;
+    const windowHeight = window.innerHeight * 5;
     objs.forEach((obj) => {
       const { section } = obj;
       section.style.height = `${windowHeight}px`;
@@ -38,13 +40,13 @@
         break;
       }
     }
-
-    console.log("setSzie curScene : ", curScene);
   };
 
   window.onload = () => {
     setSzie();
   };
+
+  const playAnimation = () => {};
 
   window.addEventListener("resize", setSzie);
   window.addEventListener("DOMContentLoaded", setSzie);
@@ -64,7 +66,6 @@
     if (pageYoffset < prevScrollHeight) {
       curScene--;
     }
-
-    console.log("curScene : ", curScene);
+    playAnimation();
   });
 })();
