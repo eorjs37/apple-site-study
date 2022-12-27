@@ -6,7 +6,7 @@
     {
       section: document.querySelector("#section1"),
       messageList: [{ messageA: document.querySelector("#section1 .main-message.a") }],
-      values: [{ messageA_opacity_in: [0, 1] }],
+      values: [{ messageA_opacity_in: [0, 1, { start: 0.1, end: 0.2 }] }, { messageA_opacity_out: [0, 1, { start: 0.22, end: 0.3 }] }],
     },
     {
       section: document.querySelector("#section2"),
@@ -50,13 +50,37 @@
   const playAnimation = () => {
     const values = objs[curScene].values;
     const messageA = document.querySelector(".main-message.a");
-
+    let prevHeight = 0; //scene 누적 높이
     let rv = 0;
     const { section } = objs[curScene];
-    const sceneHeight = section.clientHeight;
 
-    rv = curScenetHeight / sceneHeight;
-    messageA.style.opacity = rv;
+    for (let i = 0; i < curScene; i++) {
+      prevHeight += objs[i].section.clientHeight;
+    }
+
+    switch (curScene) {
+      case 0:
+        //보여줄수 있는 시작 범위값
+        const startHeight = section.clientHeight * values[0].messageA_opacity_in[2].start;
+
+        //보여줄수 있는 종료 범위값
+        const endHeight = section.clientHeight * values[0].messageA_opacity_in[2].end;
+
+        // 현재 pageYOffset
+        const pageYOffset = window.pageYOffset;
+        const arangeHeight = endHeight - startHeight;
+        const arangeStart = pageYOffset - startHeight;
+        const rv = (arangeStart / arangeHeight) * (values[0].messageA_opacity_in[1] - values[0].messageA_opacity_in[0]) + values[0].messageA_opacity_in[0];
+
+        objs[curScene].messageList[0].messageA.style.opacity = rv;
+
+        //범위안에서의 현재 위치
+        break;
+    }
+  };
+
+  const calcValues = () => {
+    //opacity
   };
 
   window.addEventListener("resize", setSzie);
