@@ -1,11 +1,53 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap");
 html {
   font-family: "Noto Sans KR", sans-serif;
   font-size: 14px;
 }
-
-section {
-  border: 1px solid red;
+/*############### Menu ###############*/
+.menu {
+  position: fixed;
+  width: 100%;
+  /* border-top:1px solid #eee;
+  border-bottom: 1px solid #eee; */
+  border: 1px solid #eee;
 }
+
+.up-menu {
+  height: 44px;
+}
+
+.up-menu nav {
+  height: 100%;
+  line-height: 44px;
+  display: flex;
+}
+
+.left-menu {
+  margin-right: auto;
+  padding-left: 10px;
+}
+
+.right-menu {
+  padding-right: 10px;
+  display: flex;
+}
+
+.right-menu .link {
+  margin-right: auto;
+  display: inline-block;
+  padding-right: 1rem;
+}
+
+.link {
+  text-decoration: none;
+  color: #000;
+}
+
+/*############### Section ###############*/
+
+/* section {
+  border: 1px solid red;
+} */
 
 .sticy-elem {
   position: fixed;
@@ -18,7 +60,7 @@ section {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 10vh;
-  line-height: 14.5vh;
+  font-size: 5vw;
+  line-height: 5.5vw;
   text-align: center;
 }

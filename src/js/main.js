@@ -20,6 +20,7 @@
   ];
   let curScene = 0;
   let curScenetHeight = 0;
+  let menuDom = document.querySelector(".menu");
 
   const setSzie = () => {
     const windowHeight = window.innerHeight * 5;
@@ -83,6 +84,15 @@
     //opacity
   };
 
+  const menuEvent = () => {
+    const pageYOffset = window.pageYOffset;
+    if (menuDom && pageYOffset > 0) {
+      menuDom.style.border = "1px solid #fff";
+    } else {
+      menuDom.style = "";
+    }
+  };
+
   window.addEventListener("resize", setSzie);
   window.addEventListener("DOMContentLoaded", setSzie);
   window.addEventListener("scroll", () => {
@@ -107,5 +117,8 @@
     if (curScenetHeight < 0) return false;
 
     playAnimation();
+
+    //메뉴 이벤트
+    menuEvent();
   });
 })();
