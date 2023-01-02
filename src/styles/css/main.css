@@ -3,3 +3,33 @@ html {
   font-family: "Noto Sans KR", sans-serif;
   font-size: 14px;
 }
+
+a {
+  text-decoration: none;
+}
+
+.menu {
+  border-bottom: 1px solid #eee;
+  padding: 0 10px;
+}
+
+.menu-list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+
+.nav-menu {
+  max-width: 1300px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.up-menu nav {
+  height: 44px;
+}
+
+.down-menu nav {
+  height: 48px;
+}
