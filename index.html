@@ -11,27 +11,39 @@
     <title>apple-site-study</title>
   </head>
   <body>
-    <div class="container">
+    <div id="app">
       <div class="menu">
-        <div class="up-menu nav-menu">
-          <nav>
-            <ul class="menu-list">
-              <li>Rooms</li>
-              <li>Ideas</li>
-              <li>Stores</li>
-              <li>Contact</li>
+        <div class="container">
+          <nav class="global-menu">
+            <ul class="space-between h-100per align-items-center">
+              <li>
+                <a href="#" class="global-text">Rooms</a>
+              </li>
+              <li>
+                <a href="#" class="global-text">Ideas</a>
+              </li>
+              <li>
+                <a href="#" class="global-text">Stores</a>
+              </li>
+              <li>
+                <a href="#" class="global-text">Contact</a>
+              </li>
             </ul>
           </nav>
-        </div>
-        <div class="down-menu nav-menu">
-          <nav>
-            <ul class="menu-list">
-              <li>AirMub Pro</li>
+          <nav class="local-menu">
+            <ul class="d-flex h-100per align-items-center">
+              <li class="mr-auto"><a class="local-text product-name" href="#">AirMub Pro</a></li>
               <li>
-                <ul class="menu-list">
-                  <li>개요</li>
-                  <li>제품사양</li>
-                  <li>구입하기</li>
+                <ul class="d-flex">
+                  <li class="pr-10">
+                    <a class="local-text" href="#">개요</a>
+                  </li>
+                  <li class="pr-10">
+                    <a class="local-text" href="#">제품사양 </a>
+                  </li>
+                  <li>
+                    <a class="local-text" href="#">구입하기</a>
+                  </li>
                 </ul>
               </li>
             </ul>

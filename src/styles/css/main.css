@@ -4,32 +4,70 @@ html {
   font-size: 14px;
 }
 
-a {
-  text-decoration: none;
-}
-
 .menu {
   border-bottom: 1px solid #eee;
   padding: 0 10px;
 }
 
-.menu-list {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 100%;
-}
-
-.nav-menu {
-  max-width: 1300px;
-  width: 100%;
+.container {
+  max-width: 1200px;
   margin: 0 auto;
 }
 
-.up-menu nav {
+.global-menu {
   height: 44px;
 }
 
-.down-menu nav {
-  height: 48px;
+.local-menu {
+  height: 43px;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.global-text {
+  text-decoration: none;
+  color: #000;
+}
+
+.local-text {
+  text-decoration: none;
+  color: #000;
+}
+
+.local-text.product-name {
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+.align-items-center {
+  display: flex;
+  align-items: center;
+}
+
+.space-between {
+  display: flex;
+  justify-content: space-between;
+}
+
+.mr-auto {
+  margin-right: auto;
+}
+
+.pl-10 {
+  padding-left: 10px;
+}
+
+.pr-10 {
+  padding-right: 10px;
+}
+
+.plr-10 {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.h-100per {
+  height: 100%;
 }
