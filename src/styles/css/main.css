@@ -7,6 +7,10 @@ html {
 .menu {
   border-bottom: 1px solid #eee;
   padding: 0 10px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
 }
 
 .container {
@@ -70,4 +74,22 @@ html {
 
 .h-100per {
   height: 100%;
+}
+
+.scroll-section {
+  border: 1px solid red;
+}
+
+.sticy-elem {
+  display: block;
+}
+
+.main-message {
+  font-size: 4vw;
+}
+
+.main-message p {
+  text-align: center;
+  font-weight: bold;
+  line-height: 1.2;
 }
